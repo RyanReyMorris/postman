@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "41cc3f02-935a-4f94-beb3-2954557d4e27",
+		"name": "токен",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "22827758-41cc3f02-935a-4f94-beb3-2954557d4e27"
+	},
+	"item": [
+		{
+			"name": "swagger",
+			"item": [
+				{
+					"name": "/v2/api-docs",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let guid = pm.variables.replaceIn('{{$guid}}')\r",
+									"let formattedGuid = guid.replace(/-/g, '')\r",
+									"pm.globals.set(\"traceId\", formattedGuid)\r",
+									"let formattedGuid2 = guid.replace(/-/g, '').substring(0,16)\r",
+									"pm.globals.set(\"spanId\", formattedGuid2)"
+								],
+								"type": "text/javascript",
+								"id": "bf6cf6b0-320b-4559-833e-55693993aa87"
+							}
+						}
+					],
+					"id": "daf10498-dd3f-4a04-a27c-4098c98ab070",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-B3-TraceId",
+								"value": "{{traceId}}",
+								"type": "text"
+							},
+							{
+								"key": "X-B3-SpanId",
+								"value": "{{spanId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payee\": {\r\n        \"card\": {\r\n            \"encryptedData\": \"EXR8uRZbwlvSfXoB8Ld7u43jtnbwsZzADjKpr548AM/OV9pJGkUlZiVHslcTfgwljtKpXADGRgi9o8G4mLpEExJSx2Icpp5gQ6eREqPg1ht3OyV8v8oxPs58rRc6nz/RUuru6Et4G56508h5vl7cXPcqVOwdMhcYD60C2vRnW9nIEWsOwI9kMxeWegqiQ3vR3HG0Nee7LRubNr2040XqVaj3stfERiG9NpZJ+Un3Uq4LKvnQRULYMktjPd4X5S+8cd1ijAk9Ad4UC+ja2VM7n+HjOfj5xGzfKpm/eGWGQLrDIOGW364Y0NW5XfR20D2RwWaehMH+pVq6b1wwv1KDThM=\"\r\n        }\r\n    },\r\n    \"sum\": [\r\n        {\r\n            \"type\": \"PAYER\",\r\n            \"value\": {\r\n                \"amount\": 3300.00,\r\n                \"cur\": \"810\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"BANK_COMMISSION\",\r\n            \"value\": {\r\n                \"amount\": 0.00,\r\n                \"cur\": \"810\"\r\n            }\r\n        }\r\n    ],\r\n    \"docId\": \"608fc258-569c-469a-b75a-7fb52876481d\",\r\n    \"merchantId\": \"0017I001722\"\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}/v2/api-docs",
+							"host": [
+								"{{protocol}}{{host}}"
+							],
+							"path": [
+								"v2",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сваггер UI ссылка",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let guid = pm.variables.replaceIn('{{$guid}}')\r",
+									"let formattedGuid = guid.replace(/-/g, '')\r",
+									"pm.globals.set(\"traceId\", formattedGuid)\r",
+									"let formattedGuid2 = guid.replace(/-/g, '').substring(0,16)\r",
+									"pm.globals.set(\"spanId\", formattedGuid2)"
+								],
+								"type": "text/javascript",
+								"id": "c67c2cf8-8bec-4636-800c-e043d2479e32"
+							}
+						}
+					],
+					"id": "60801111-2cdf-4327-8776-0add425e066c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-B3-TraceId",
+								"value": "{{traceId}}",
+								"type": "text"
+							},
+							{
+								"key": "X-B3-SpanId",
+								"value": "{{spanId}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payee\": {\r\n        \"card\": {\r\n            \"encryptedData\": \"EXR8uRZbwlvSfXoB8Ld7u43jtnbwsZzADjKpr548AM/OV9pJGkUlZiVHslcTfgwljtKpXADGRgi9o8G4mLpEExJSx2Icpp5gQ6eREqPg1ht3OyV8v8oxPs58rRc6nz/RUuru6Et4G56508h5vl7cXPcqVOwdMhcYD60C2vRnW9nIEWsOwI9kMxeWegqiQ3vR3HG0Nee7LRubNr2040XqVaj3stfERiG9NpZJ+Un3Uq4LKvnQRULYMktjPd4X5S+8cd1ijAk9Ad4UC+ja2VM7n+HjOfj5xGzfKpm/eGWGQLrDIOGW364Y0NW5XfR20D2RwWaehMH+pVq6b1wwv1KDThM=\"\r\n        }\r\n    },\r\n    \"sum\": [\r\n        {\r\n            \"type\": \"PAYER\",\r\n            \"value\": {\r\n                \"amount\": 3300.00,\r\n                \"cur\": \"810\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"BANK_COMMISSION\",\r\n            \"value\": {\r\n                \"amount\": 0.00,\r\n                \"cur\": \"810\"\r\n            }\r\n        }\r\n    ],\r\n    \"docId\": \"608fc258-569c-469a-b75a-7fb52876481d\",\r\n    \"merchantId\": \"0017I001722\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9081/swagger-ui.html?urls.primaryName=scb-ms-credit-application#/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"swagger-ui.html"
+							],
+							"query": [
+								{
+									"key": "urls.primaryName",
+									"value": "scb-ms-credit-application"
+								}
+							],
+							"hash": "/"
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "8740ba2a-2122-42e0-a5ba-0bd96b2fdc92"
+		},
+		{
+			"name": "дай токен",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set token\", function () {\r",
+							"    var jsonData = JSON.parse(responseBody);\r",
+							"    pm.globals.set(\"bearer_token\", 'Bearer ' + jsonData.access_token);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"id": "089d5921-7129-4212-ad33-a604777bd2e5"
+					}
+				}
+			],
+			"id": "d9e44c2f-f352-41e9-a2d7-af7cb2a8e7e8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "11fb7bdc-7ac4-45e6-9027-471cd0d34154",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Dev_SCBAPI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://keycloak-int-test.sovcombank.group/auth/realms/internalApi/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"keycloak-int-test",
+						"sovcombank",
+						"group"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"internalApi",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "дай токен old",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set token\", function () {\r",
+							"    var jsonData = JSON.parse(responseBody);\r",
+							"    pm.globals.set(\"bearer_token\", 'Bearer ' + jsonData.access_token);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"id": "1e5c4ed0-0883-4247-bd6c-f0b14258d8db"
+					}
+				}
+			],
+			"id": "4ec16152-8b6d-4f7a-a74f-32e978e59ecd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "11fb7bdc-7ac4-45e6-9027-471cd0d34154",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Dev_SCBAPI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://keycloak.sovcombank.group/auth/realms/internalApi/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"keycloak",
+						"sovcombank",
+						"group"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"internalApi",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v3/clients/2414577431/notification/push/subscription",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let guid = pm.variables.replaceIn('{{$guid}}')\r",
+							"let formattedGuid = guid.replace(/-/g, '')\r",
+							"pm.globals.set(\"traceId\", formattedGuid)\r",
+							"let formattedGuid2 = guid.replace(/-/g, '').substring(0,16)\r",
+							"pm.globals.set(\"spanId\", formattedGuid2)"
+						],
+						"type": "text/javascript",
+						"id": "0b82f9ad-b27b-4b3d-aaa5-e6c5d6588306"
+					}
+				}
+			],
+			"id": "979d8eae-35f7-4272-b0ef-fd2cabc7a10c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Client-Id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{bearer_token}}",
+						"type": "text"
+					},
+					{
+						"key": "X-B3-TraceId",
+						"value": "{{traceId}}",
+						"type": "text"
+					},
+					{
+						"key": "X-B3-SpanId",
+						"value": "{{spanId}}",
+						"type": "text"
+					},
+					{
+						"key": "STUB-ACTIVATE",
+						"value": "GEORG_FOR_NEW_CREDITS_FIELD",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"79272266254\",\r\n    \"device\": {\r\n        \"deviceUid\": \"7376dbfd-b927-4896-93d8-3b1671901785\",\r\n        \"applicationCode\": \"HalvaApp\"\r\n    },\r\n    \"enableSubscription\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{protocol}}{{host}}/api/v3/clients/2414577431/notification/push/subscription",
+					"host": [
+						"{{protocol}}{{host}}"
+					],
+					"path": [
+						"api",
+						"v3",
+						"clients",
+						"2414577431",
+						"notification",
+						"push",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
